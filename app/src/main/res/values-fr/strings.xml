@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EasyCheck</string>
+    <string name="email">e-mail</string>
+    <string name="password">le mot de passe</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="firstName">Prénom</string>
+    <string name="lastname">Nom de famille</string>
+    <string name="createaccount">Non enregistré? Cliquez ici</string>
+    <string name="loginbtn">"Connexion "</string>
+</resources>

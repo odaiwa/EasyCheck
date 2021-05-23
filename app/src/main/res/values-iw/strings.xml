@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EasyCheck</string>
+    <string name="email">אי-מייל</string>
+    <string name="password">סיסמה</string>
+    <string name="firstName">שם פרטי</string>
+    <string name="username">שם משתמש</string>
+    <string name="lastname">שם משפחה</string>
+    <string name="createaccount">אין לך חשבון? תלחץ כאן</string>
+    <string name="loginbtn">התחבר</string>
+</resources>
