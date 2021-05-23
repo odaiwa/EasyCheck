@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+        <!--    New Colors by Odai-->
+    <!--    will be Primary color -->
+    <color name="orange_yellow">#D17B0F</color>
+    <color name="orange_yellow_less">#E8D33F</color>
+    <color name="yellow">#EDFF7A</color>
+    <color name="green_yellow">#D2FF96</color>
+    <color name="almost_green">#B7F0AD</color>
+    <color name="mocassin">#FFE4B5</color>
+
 </resources>
