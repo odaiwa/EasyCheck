@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">EasyCheck</string>
+    <string name="app_name">"فحص سهل "</string>
     <string name="email">ايميل</string>
     <string name="password">كلمة المرور</string>
     <string name="username">اسم المستخدم</string>
@@ -9,4 +9,6 @@
     <string name="createaccount">لا تملك لك حساب؟ اضغط هنا</string>
     <string name="loginbtn">تسجيل الدخول</string>
     <string name="signupbtn">اشتراك</string>
+    <string name="email_error_message">"يجب عليك ملء حقل البريد الإلكتروني "</string>
+    <string name="password_error_message">"يجب عليك ملء حقل كلمة المرور "</string>
 </resources>

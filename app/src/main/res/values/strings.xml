@@ -8,4 +8,6 @@
     <string name="createaccount">Not Registered? Click Here</string>
     <string name="loginbtn">Login</string>
     <string name="signupbtn">Sign Up</string>
+    <string name="email_error_message">You must fill the email field</string>
+    <string name="password_error_message">you must fill the password field</string>
 </resources>
