@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyCheck">
-<!-- Launch this activity when starting the application-->
-       <activity android:name=".WelcomeScreen">
+        <activity android:name=".CreateAccount"></activity>
+        <!-- Launch this activity when starting the application -->
+        <activity android:name=".WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

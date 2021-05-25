@@ -8,4 +8,5 @@
     <string name="lastname">Nom de famille</string>
     <string name="createaccount">Non enregistré? Cliquez ici</string>
     <string name="loginbtn">"Connexion "</string>
+    <string name="signupbtn">S\'inscrire</string>
 </resources>

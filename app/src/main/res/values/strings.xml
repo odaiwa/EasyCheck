@@ -7,4 +7,5 @@
     <string name="lastname">Last Name</string>
     <string name="createaccount">Not Registered? Click Here</string>
     <string name="loginbtn">Login</string>
+    <string name="signupbtn">Sign Up</string>
 </resources>

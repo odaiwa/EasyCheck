@@ -8,4 +8,5 @@
     <string name="lastname">שם משפחה</string>
     <string name="createaccount">אין לך חשבון? תלחץ כאן</string>
     <string name="loginbtn">התחבר</string>
+    <string name="signupbtn">הירשם</string>
 </resources>
