@@ -59,7 +59,7 @@
         android:layout_height="40dp"
         android:background="@drawable/orangebuttonshape"
         android:fontFamily="sans-serif-light"
-        android:text="LOGIN"
+        android:text="@string/loginbtn"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
