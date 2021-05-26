@@ -70,20 +70,23 @@ public class CreateAccount extends AppCompatActivity {
     boolean check_details(){
         boolean flag=true;
         if(first_name_txt.getText().toString().isEmpty()){
-            first_name_txt.setError("first name cannot be empty!");
+            first_name_txt.setError(getString(R.string.first_name_field_error));
             flag = false;
         }
         if(last_name_txt.getText().toString().isEmpty()){
-            last_name_txt.setError("last name cannot be empty!");
+            last_name_txt.setError(getString(R.string.last_name_field_error));
             flag = false;
         }
         if(email_txt.getText().toString().isEmpty()){
-            email_txt.setError("email cannot be empty!");
+            email_txt.setError(getString(R.string.email_field_error));
             flag = false;
         }
         if(password_txt.getText().toString().isEmpty()){
-            password_txt.setError("password cannot be empty!");
+            password_txt.setError(getString(R.string.password_error_message));
             flag = false;
+        }
+        if(checkPasswordStrength()){
+
         }
 
         return flag;
@@ -140,5 +143,13 @@ public class CreateAccount extends AppCompatActivity {
         catch (Exception e){
 
         }
+    }
+
+    boolean checkPasswordStrength(){
+        if(password_txt.getText().toString().length()<6){
+            password_txt.setError(getString(R.string.password_length_error));
+            return false;
+        }
+        return true;
     }
 }

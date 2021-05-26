@@ -11,4 +11,8 @@
     <string name="signupbtn">S\'inscrire</string>
     <string name="email_error_message">"Vous devez remplir le champ email "</string>
     <string name="password_error_message">"Vous devez remplir le champ du mot de passe "</string>
+    <string name="first_name_field_error">Le prénom ne peut pas être vide</string>
+    <string name="email_field_error">Le champ de l\'e-mail ne peut pas être vide</string>
+    <string name="last_name_field_error">Le nom de famille ne peut pas être vide</string>
+    <string name="password_length_error">Le mot de passe doit contenir au moins 6 caractères</string>
 </resources>

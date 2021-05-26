@@ -10,4 +10,8 @@
     <string name="signupbtn">Sign Up</string>
     <string name="email_error_message">You must fill the email field</string>
     <string name="password_error_message">you must fill the password field</string>
+    <string name="first_name_field_error">First Name cannot be empty</string>
+    <string name="last_name_field_error">Last Name cannot be empty</string>
+    <string name="email_field_error">Email field cannot be empty</string>
+    <string name="password_length_error">Password must be at least 6 chars</string>
 </resources>

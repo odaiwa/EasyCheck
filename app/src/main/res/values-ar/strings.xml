@@ -11,4 +11,8 @@
     <string name="signupbtn">اشتراك</string>
     <string name="email_error_message">"يجب عليك ملء حقل البريد الإلكتروني "</string>
     <string name="password_error_message">"يجب عليك ملء حقل كلمة المرور "</string>
+    <string name="first_name_field_error">يجب عليك ملء الاسم الشخصي</string>
+    <string name="last_name_field_error">يجب عليك ملء الاسم العائلة</string>
+    <string name="email_field_error">لا يمكن ترك حقل البريد الإلكتروني فارغًا</string>
+    <string name="password_length_error">غلى كلمة المرور ان تكون على الاقل مكونة من 6 خانات</string>
 </resources>

@@ -49,16 +49,20 @@ public class WelcomeScreen extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),CreateAccount.class));
             }
         });
+
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                check_details();
+                if(check_details()){
+                    signIn(email_txt.getText().toString(),password_txt.getText().toString());
+                }
             }
         });
 
     }
 
     boolean check_details(){
+        System.out.println("Cheking Values...");
         boolean correct = true;
         if(email_txt.getText().toString().isEmpty()){
             email_txt.setError(getString(R.string.email_error_message));
@@ -72,6 +76,7 @@ public class WelcomeScreen extends AppCompatActivity {
     }
 
         private void signIn(String email, String password) {
+            System.out.println("Tring to login to system using email : "+email+" password : "+password);
             // [START sign_in_with_email]
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -79,15 +84,16 @@ public class WelcomeScreen extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
+                                Toast.makeText(getApplicationContext(),"Loged in succeffully",Toast.LENGTH_LONG).show();
                                 Log.d("LOGINSUCCESSFUL", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-//                                updateUI(user);
-                            } else {
+                            }
+                            else {
                                 // If sign in fails, display a message to the user.
+                                Toast.makeText(getApplicationContext(),"Failed to login",Toast.LENGTH_LONG).show();
                                 Log.w("LOGINFAILED", "signInWithEmail:failure", task.getException());
                                 Toast.makeText(WelcomeScreen.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
-//                                updateUI(null);
                             }
                         }
                     });

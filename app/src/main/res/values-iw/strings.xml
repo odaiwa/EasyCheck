@@ -11,4 +11,8 @@
     <string name="signupbtn">הירשם</string>
     <string name="email_error_message">"עליך למלא את שדה הדוא\"ל "</string>
     <string name="password_error_message">עליך למלא את שדה הסיסמה</string>
+    <string name="first_name_field_error">"שם פרטי לא יכול להיות ריק "</string>
+    <string name="last_name_field_error">"שם משפחה לא יכול להיות ריק "</string>
+    <string name="email_field_error">שדה דוא\"ל לא יכול להיות ריק</string>
+    <string name="password_length_error">הסיסמה חייבת להיות לפחות 6 תווים</string>
 </resources>
