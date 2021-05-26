@@ -18,4 +18,5 @@
     <string name="welcome_main_activity">שלום</string>
     <string name="car_plate_hint">כתוב כאן מספר לוחית רכב</string>
     <string name="check_car">בדוק</string>
+    <string name="car_plate_field">חייב לספק את ספר לוחית הרכב</string>
 </resources>

@@ -18,4 +18,5 @@
     <string name="welcome_main_activity">Bonjour</string>
     <string name="car_plate_hint">Écrivez le numéro de plaque d\'immatriculation ici</string>
     <string name="check_car">Chèque</string>
+    <string name="car_plate_field">vous devez prendre en charge le numéro de plaque de voiture</string>
 </resources>

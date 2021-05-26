@@ -26,4 +26,5 @@
     <string name="welcome_main_activity">Welcome</string>
     <string name="car_plate_hint">Write car plate number here</string>
     <string name="check_car">Check</string>
+    <string name="car_plate_field">You must support car plate number</string>
 </resources>

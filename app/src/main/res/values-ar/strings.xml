@@ -18,4 +18,5 @@
     <string name="welcome_main_activity">مرحبا</string>
     <string name="car_plate_hint">اكتب رقم لوحة السيارة هنا</string>
     <string name="check_car">افحص</string>
+    <string name="car_plate_field">يجب عليك دعم رقم لوحة السيارة</string>
 </resources>
