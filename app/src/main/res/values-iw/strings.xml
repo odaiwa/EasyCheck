@@ -15,4 +15,7 @@
     <string name="last_name_field_error">"שם משפחה לא יכול להיות ריק "</string>
     <string name="email_field_error">שדה דוא\"ל לא יכול להיות ריק</string>
     <string name="password_length_error">הסיסמה חייבת להיות לפחות 6 תווים</string>
+    <string name="welcome_main_activity">שלום</string>
+    <string name="car_plate_hint">כתוב כאן מספר לוחית רכב</string>
+    <string name="check_car">בדוק</string>
 </resources>

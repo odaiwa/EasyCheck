@@ -29,6 +29,8 @@ public class WelcomeScreen extends AppCompatActivity {
     //Firebase instance
     private FirebaseAuth mAuth;
 
+    static String uuid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,9 @@ public class WelcomeScreen extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Loged in succeffully",Toast.LENGTH_LONG).show();
                                 Log.d("LOGINSUCCESSFUL", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                uuid = user.getUid();
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                finish();
                             }
                             else {
                                 // If sign in fails, display a message to the user.

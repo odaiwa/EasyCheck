@@ -15,4 +15,7 @@
     <string name="last_name_field_error">يجب عليك ملء الاسم العائلة</string>
     <string name="email_field_error">لا يمكن ترك حقل البريد الإلكتروني فارغًا</string>
     <string name="password_length_error">غلى كلمة المرور ان تكون على الاقل مكونة من 6 خانات</string>
+    <string name="welcome_main_activity">مرحبا</string>
+    <string name="car_plate_hint">اكتب رقم لوحة السيارة هنا</string>
+    <string name="check_car">افحص</string>
 </resources>

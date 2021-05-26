@@ -15,4 +15,7 @@
     <string name="email_field_error">Le champ de l\'e-mail ne peut pas être vide</string>
     <string name="last_name_field_error">Le nom de famille ne peut pas être vide</string>
     <string name="password_length_error">Le mot de passe doit contenir au moins 6 caractères</string>
+    <string name="welcome_main_activity">Bonjour</string>
+    <string name="car_plate_hint">Écrivez le numéro de plaque d\'immatriculation ici</string>
+    <string name="check_car">Chèque</string>
 </resources>
