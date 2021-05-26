@@ -106,6 +106,7 @@ public class CreateAccount extends AppCompatActivity {
 
     private void createAccount(String email, String password, HashMap<String,Object> user) {
         try{
+        HashMap<String,Object> new_user = new HashMap<>();
 
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -113,16 +114,17 @@ public class CreateAccount extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            String uuid = mAuth.getCurrentUser().getUid();
                             // Sign in success, update UI with the signed-in user's information
-                            db.collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            db.collection("users").document(uuid).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    System.out.println("User has been added to FireStore");
+                                public void onSuccess(Void unused) {
+                                    System.out.println("User has been added to FireStore.");
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    System.out.println("Error occuried while trying to add the document.");
+                                    System.out.println("Error adding the data to FireStore.");
                                 }
                             });
                             Toast.makeText(getApplicationContext(),"User Created Successfully.",Toast.LENGTH_LONG).show();
