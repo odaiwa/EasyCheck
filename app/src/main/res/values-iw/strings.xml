@@ -19,4 +19,5 @@
     <string name="car_plate_hint">כתוב כאן מספר לוחית רכב</string>
     <string name="check_car">בדוק</string>
     <string name="car_plate_field">חייב לספק את ספר לוחית הרכב</string>
+    <string name="car_dont_have_tag">הרכב הזה לא לאנשים נכים</string>
 </resources>

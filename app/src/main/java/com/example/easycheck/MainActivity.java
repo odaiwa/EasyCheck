@@ -24,6 +24,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -189,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
         protected JSONObject doInBackground(Void... params)
         {
 
-            String str="https://data.gov.il/api/3/action/datastore_search?resource_id=c8b9f9c8-4612-4068-934f-d4acd2e3c06e&q=%2226721%22";
+            String str="https://data.gov.il/api/3/action/datastore_search?resource_id=c8b9f9c8-4612-4068-934f-d4acd2e3c06e&q=%22"+car_plate_number.getText().toString()+"%22";
             URLConnection urlConn = null;
             BufferedReader bufferedReader = null;
             try
@@ -231,12 +232,17 @@ public class MainActivity extends AppCompatActivity {
             if(response != null)
             {
                 try {
-                    if(response.getString("result") == null){
-                        System.out.println("NULLLLLLLLLLLLLLLLLLL");
+                    JSONObject jsonObj = response.getJSONObject("result");
+                    JSONArray array = (JSONArray )jsonObj.get("records");
+                    if(array.length() == 0){
+                        returned_value.setText(getString(R.string.car_dont_have_tag));
+                        System.out.println("Array : "+array.toString());
+                        return;
                     }else{
-                        System.out.println("Success: " + response.getString("result[0]"));
-                        Log.e("App", "Success: " + response.getString("result") );
+                        returned_value.setText(array.getJSONObject(0).get("SUG TAV").toString());
+                        System.out.println("Array : "+array.getJSONObject(0).get("SUG TAV").toString());
                     }
+
                 } catch (JSONException ex) {
                     Log.e("App", "Failure", ex);
                 }
