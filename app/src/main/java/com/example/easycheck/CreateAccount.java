@@ -11,10 +11,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -23,13 +30,14 @@ public class CreateAccount extends AppCompatActivity {
     Button signup_btn;
 
     private FirebaseAuth mAuth;
-
+    FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
         first_name_txt = findViewById(R.id.first_name_txt);
         last_name_txt = findViewById(R.id.last_name_txt);
         email_txt = findViewById(R.id.email_txt);
@@ -51,13 +59,17 @@ public class CreateAccount extends AppCompatActivity {
                 final String Password = password_txt.getText().toString().trim();
 
                 if(!check_details()){
-                    Toast.makeText(getApplicationContext(),"one or more of the fields is empty!",Toast.LENGTH_LONG).show();
                     return;
                 }
-//                boolean created = createNewUser(Email,Password);
 
+                HashMap<String,Object> new_user = new HashMap<>();
 
-                createAccount(Email,Password);
+                new_user.put("firstname",first_name);
+                new_user.put("lastname",last_name);
+                new_user.put("Email",Email);
+                new_user.put("password",Password);
+
+                createAccount(Email,Password,new_user);
 
 
             }
@@ -91,30 +103,8 @@ public class CreateAccount extends AppCompatActivity {
 
         return flag;
     }
-/*
-    boolean createNewUser(String Email,String Password){
-        final boolean[] created = {false};
-        System.out.println(Email+" "+Password);
 
-        mAuth.createUserWithEmailAndPassword(Email,Password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            created[0] = true;
-                            Log.d("USRCREATION","user created successfully");
-                            System.out.println("User Created");
-                        }
-                        else{
-                            Log.d("USRCREATION","Failed to create user");
-                            System.out.println("User Fucked");
-                        }
-                    }
-                });
-        return created[0];
-    }*/
-
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, String password, HashMap<String,Object> user) {
         try{
 
         // [START create_user_with_email]
@@ -124,6 +114,17 @@ public class CreateAccount extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            db.collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    System.out.println("User has been added to FireStore");
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    System.out.println("Error occuried while trying to add the document.");
+                                }
+                            });
                             Toast.makeText(getApplicationContext(),"User Created Successfully.",Toast.LENGTH_LONG).show();
                             Log.d("USERCREATED", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
