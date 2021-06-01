@@ -7,9 +7,13 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -50,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     DocumentReference ref;
     Button check_btn;
     EditText car_plate_number;
-//    DatabaseReference mDatabase;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
@@ -62,16 +65,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        mAuth = FirebaseAuth.getInstance();
-//        String uuid = mAuth.getCurrentUser().getUid();
         user_name = findViewById(R.id.user_name);
         db = FirebaseFirestore.getInstance();
         check_btn = findViewById(R.id.check_button);
         car_plate_number = findViewById(R.id.carplate);
         returned_value = findViewById(R.id.returned_value);
         String userpath = "users"+"/"+WelcomeScreen.uuid;
-//        String username = db.collection(userpath).get("firstname").toString();
-//        user_name.setText(username);
         ref = db.collection("users").document(WelcomeScreen.uuid);
         ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -92,31 +91,15 @@ public class MainActivity extends AppCompatActivity {
                     car_plate_number.setError(getString(R.string.car_plate_field));
                     return;
                 }
+
                 new yourDataTask()
                         .execute();
-                /*
-                myRef = database.getReference(car_plate_number.getText().toString());
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        DataSnapshot value = snapshot.child("SUG TAV");
-                        if(value.getValue() == null){
-                            returned_value.setText("This car has no TAV");
-                            return;
-                        }
-                        String val = value.getValue().toString();
-                        returned_value.setText(val);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        returned_value.setText(error.toString());
-                    }
-                });*/
             }
         });
 
 }
+
+
     private class JsonTask extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
